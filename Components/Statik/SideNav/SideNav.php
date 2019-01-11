@@ -3,6 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../Components/Statik/SideNav/SideNav.css"/>
 </head>
 
+<body>
 
 
             <ul id="slide-out" class="sidenav">
@@ -13,7 +14,6 @@
                         <div class="background">
                             <!-- <img src="images/office.jpg"> -->
                         </div>
-
 
                         <!-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> -->
                         <a href="#name"><span class="white-text name">John Doe</span></a>
@@ -30,7 +30,7 @@
             </ul>
 
 
-    <a href="#" data-target="slide-out" id="sidenav-menu-btn" class="sidenav-trigger"><i class="material-icons" id="sidenav-menu-icon">menu</i></a>
+    <a href="#" data-target="slide-out" id="sidenav-menu-btn" class="sidenav-trigger"><i class="material-icons" id="sidenav-menu-icon">menu</i><ul>MENU</ul></a>
 
     <script>
     
@@ -51,5 +51,6 @@
 
         $(document).ready(function(){
             $('.sidenav').sidenav();
-        });</script>
-        
+        });
+</script>
+</body>

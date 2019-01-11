@@ -1,28 +1,28 @@
 /* Total container for index page(Login page) */
 #indexPage {
-    width: 100%;
-    height: 845px;
+  width: 100%;
+  height: 845px;
 
-    display: inline-block;
+  display: inline-block;
 
-    background-color: black;
+  background-color: black;
 }
 
 /* Container for login system */
 #loginSystem {
-    width: 300px;
-    height: auto;
+  width: 300px;
+  height: auto;
 
-    display: block;
+  display: block;
 
-    margin: auto;
-    margin-top: 200px;
-    padding-bottom: 30px;
+  margin: auto;
+  margin-top: 200px;
+  padding-bottom: 30px;
 
-    border: 2px solid grey;
-    border-radius: 8px;
+  border: 2px solid grey;
+  border-radius: 8px;
 
-    color: white;
+  color: white;
 }
 
 /* 
@@ -37,25 +37,25 @@
 
 /* Login Element Title*/
 #loginSystem #loginTitle {
-    font-size: 190%;
-    font-family: "Goudy Old Style";
-    font-weight: bold;
-    text-align: center;
+  font-size: 190%;
+  font-family: "Goudy Old Style";
+  font-weight: bold;
+  text-align: center;
 
-    width: 100%;
-    height: 50px;
+  width: 100%;
+  height: 50px;
 
-    display: block;
+  display: block;
 
-    color: black;
-    background-color: grey;
+  color: black;
+  background-color: grey;
 }
 
 #loginSystem .infoRow {
-    width: 100%;
-    height: 55px;
+  width: 100%;
+  height: 55px;
 
-    display: block;
+  display: block;
 }
 
 /* ------------------------------------------------------------------ */
@@ -64,18 +64,18 @@
 
 /* Username and password labels */
 #loginSystem .infoRow label {
-    font-size: 100%;
-    font-family: "Goudy Old Style";
-    width: 100px;
+  font-size: 100%;
+  font-family: "Goudy Old Style";
+  width: 100px;
 
-    display: inline-block;
+  display: inline-block;
 
-    padding: 5px;
-    padding-left: 10px;
+  padding: 5px;
+  padding-left: 10px;
 }
 
 #loginSystem label:first-of-type {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 /* ------------------------------------------------------------------ */
@@ -85,61 +85,58 @@
 /* Username and password input */
 #loginSystem input[type="text"],
 #loginSystem input[type="password"] {
-    font-size: 100%;
+  font-size: 100%;
 
-    width: 170px;
+  width: 170px;
 
-    color: white;
-    background-color: black;
+  color: white;
+  background-color: black;
 
-    border: none;
-    border-bottom: 1px solid darkred;
+  border: none;
+  border-bottom: 1px solid darkred;
 
-    cursor: text;
-    caret-color: red;
-
+  cursor: text;
+  caret-color: red;
 }
 
 #loginSystem input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px black inset;
-    -webkit-text-fill-color: white !important;
-
+  -webkit-box-shadow: 0 0 0px 1000px black inset;
+  -webkit-text-fill-color: white !important;
 }
 
 /* ------------------------------------------------------------------ */
 /* ------------------------------------------------------------------ */
 /* Button to login users */
 #loginUser-btn {
-    font-size: 130%;
-    font-family: "Goudy Old Style";
+  font-size: 130%;
+  font-family: "Goudy Old Style";
 
-    width: 120px;
-    height: 30px;
+  width: 120px;
+  height: 30px;
 
-    display: block;
-    margin: auto;
-    margin-top: 10px;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
 
-    border-radius: 8px;
+  border-radius: 8px;
 
-    color: white;
-    background-color: black;
-    border: 1px solid white;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
 
-    cursor: pointer;
-    caret-color: red;
-
+  cursor: pointer;
+  caret-color: red;
 }
 
 #loginUser-btn:hover {
-    background-color: white;
-    border-color: grey;
-    color: black;
+  background-color: white;
+  border-color: grey;
+  color: black;
 }
 
 #loginUser-btn:active {
-    color: white;
-    background-color: blue;
+  color: white;
+  background-color: blue;
 }
 
 /* ------------------------------------------------------------------ */
@@ -147,30 +144,23 @@
 /* ------------------------------------------------------------------ */
 
 #RememberMeCheckbox {
-    font-size: 100%;
+  font-size: 100%;
 
-    display: block;
+  display: block;
 
-    padding-left: 105px;
-    margin-top: -10px;
-    color: red;
-    /* -webkit-appearance: checkbox; */
-
+  padding-left: 105px;
+  margin-top: -10px;
+  color: red;
 }
 
-/* input[type='checkbox'] {
-    -webkit-appearance: checkbox;
-} */
-
-
 #loginError {
-    font-size: 110%;
-    font-family: "Goudy Old Style";
+  font-size: 110%;
+  font-family: "Goudy Old Style";
 
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 
-    padding: 10px;
+  padding: 10px;
 
-    color: red;
+  color: red;
 }

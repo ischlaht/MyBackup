@@ -3,7 +3,6 @@ function redirection(){
     if(isset($_COOKIE['LoggedIn'])){
         if($_COOKIE['LoggedIn'] == true){
             echo "Welcome" .$_COOKIE['UserName']. " to your account cookie!";
-            echo '<script>alert("Cookie Set");</script>';
         }
     }
     elseif(isset($_SESSION['LoggedIn'])){
