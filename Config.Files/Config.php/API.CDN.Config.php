@@ -17,7 +17,7 @@
 				<!-- For ng sanitize -->
 			<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
 
-			<script src="../Library/angular1.6.7/Ng-Cookies/node_modules/angular-cookies/angular-cookies.js"></script>
+			<!-- <script src="../Library/angular1.6.7/Ng-Cookies/node_modules/angular-cookies/angular-cookies.js"></script> -->
 
 			
 				<!--Import Google Icon Font-->

@@ -5,9 +5,24 @@
 
 <body>
 
+<?php
+    function displayData($myData) {
+        // $myData = 'UserName';
+        if(isset($_COOKIE['LoggedIn']) || isset($_SESSION['LoggedIn'])){
+                if(isset($_COOKIE[$myData])){
+                    echo $_COOKIE[$myData];
+                }
+                elseif(isset($_SESSION[$myData])){
+                    echo $_SESSION[$myData];
+                }
+        }   
+        else{
+            echo "";
+        }
+    }
+?>
 
             <ul id="slide-out" class="sidenav">
-
 
                 <li>
                     <div class="user-view">
@@ -16,25 +31,45 @@
                         </div>
 
                         <!-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> -->
-                        <a href="#name"><span class="white-text name">John Doe</span></a>
-                        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+
+
+                        <!-- <a href="#name"> -->
+                        <div id="userName">
+                            <?php 
+                                displayData('UserName');
+                            ?>
+                        </div>
+
+                        <div class="black-text" id="firstName">
+                            <?php 
+                                displayData('LastName');
+                            ?>
+                        
+                        </div>
+
+                        <div class="black-text" id="lastName">
+                            <?php 
+                                displayData('LastName');
+                            ?>
+                        </div>
+
+
+                        <!-- <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a> -->
                     </div>
                 </li>
 
 
-                <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-                <li><a href="#!">Second Link</a></li>
-                <li><div class="divider"></div></li>
-                <li><a class="subheader">Subheader</a></li>
-                <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+                <li><a href="../HomePage/HomePage.php"><i class="material-icons">cloud</i>Home Page</a></li>
+                <li><a href="../AdminSystem/AdminSystem.php"><i class="material-icons">group</i>Admin Panel</a></li>
+                <li><div class="divider black"></div></li>
+                <li><a class="Preferences"></a></li>
+                <li><a class="waves-effect" href="#!"><i class="material-icons">build</i>Settings</a></li>
             </ul>
 
 
     <a href="#" data-target="slide-out" id="sidenav-menu-btn" class="sidenav-trigger"><i class="material-icons" id="sidenav-menu-icon">menu</i><ul>MENU</ul></a>
 
     <script>
-    
-    
     
 
 

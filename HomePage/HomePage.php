@@ -1,42 +1,25 @@
+
+
 <?php
-function redirection(){
-    if(isset($_COOKIE['LoggedIn'])){
-        if($_COOKIE['LoggedIn'] == true){
-            echo "Welcome" .$_COOKIE['UserName']. " to your account cookie!";
+    function reDirIndex(){
+        if(!isset($_COOKIE['UserName']) && !isset($_SESSION['UserName'])){
+				header('location: ../Index/Index.php');
         }
-    }
-    elseif(isset($_SESSION['LoggedIn'])){
-        if($_SESSION['LoggedIn'] == true){
-            echo "Welcome" .$_SESSION['UserName']. " to your account session!";
-        }
-    }
-    else{
-        header('location: ../Index/Index.php');
-        echo "Else on redirection function";
-
-    }
-
-}
-// echo $_SESSION['UserName'];
-redirection();
-
+	}
+    reDirIndex();
 ?>
 
 
-
-<html lang="en">
+<html>
     <head>
-        <?php
-	        require_once('../Components/Statik/Header/Header.php');
-        ?>
+    <?php
+        require('../Components/Statik/Header/Header.php');
+    ?>
     </head>
 
 
-
-
-
     <body>
-        <div id="HomePage" ng-controller="Home">
+        <div id="HomePage" ng-controller="Homee">
         <input type="button" id="button" ng-click="clicked()"/>
         
         </div>
@@ -44,18 +27,17 @@ redirection();
 
 
 <script>
-var HomePage = angular.module('HomePage', ['ngSanitize', 'ngCookies'])
-HomePage.controller('Home', ['$scope', '$http', '$cookies', function ($scope, $http, $cookies) {
+var HomePage = angular.module('HomePage', ['ngSanitize'])
+HomePage.controller('Homee', ['$scope', '$http', function ($scope, $http) {
     $scope.clicked = function(){
-        <?php
-        alert($_COOKIE['UserName'])
-        ?>
+     alert('testig angular config');
     }
     
 }]); // End of Login System and Controller...
-$('#HomePage').ready(function () {
+
+$('#HomePage').ready( function () {
   angular.bootstrap($('#HomePage'), ['HomePage'])
-})
+});
 
 </script>
 
@@ -65,4 +47,4 @@ $('#HomePage').ready(function () {
 
 
 
-</html>..
+</html>

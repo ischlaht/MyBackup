@@ -1,5 +1,5 @@
-var LoginSystem = angular.module('LoginSystem', ['ngSanitize', 'ngCookies'])
-LoginSystem.controller('LoginUser', ['$scope', '$http', '$cookies', function ($scope, $http, $cookies) {
+var LoginSystem = angular.module('LoginSystem', ['ngSanitize'])
+LoginSystem.controller('LoginUser', ['$scope', '$http', function ($scope, $http) {
 
   // -------------------------------------------------------------------------------------------------------------------------------------
   // -------------------------------------------------------------------------------------------------------------------------------------

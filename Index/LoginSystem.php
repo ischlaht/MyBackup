@@ -5,18 +5,6 @@
     $ERR = "";
     $serverError = false;
 
-    // function reDir(){
-    //     if(isset($_COOKIE['LoggedIn'])){
-	// 			if($_COOKIE['LoggedIn'] == true){
-	// 				header('location: ../HomePage/HomePage.php');
-	// 			}
-	// 		}
-	// 		elseif(isset($_SESSION['LoggedIn'])){
-	// 			if($_SESSION['LoggedIn'] == true){
-	// 				header('location: ../HomePage/HomePage.php');
-	// 			}
-	// 		}
-    // }
 // -------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------
@@ -28,7 +16,6 @@
         $UserName = $_POST['UserName'];
         $Password = $_POST['Password'];
 
-
             if (!preg_match('/^[a-zA-Z0-9]+$/', $UserName)){
                 $ERR = "Invalid Username or Password characters.";
                 $serverError = true;
@@ -39,9 +26,7 @@
                 $serverError = true;
             }
 
-
             elseif($serverError == false){
-
 
                 $LoginQuery = "SELECT $DBTotalDataArray FROM useraccounts WHERE userName = ? && password = ?";
 
@@ -96,9 +81,9 @@
                                             setcookie('LoggedIn',           true,               time() + 60*60*24*365*50, '/', $Cookie, false);
                                             setcookie('UserID',             $userID,            time() + 60*60*24*365*50, '/', $Cookie, false);
                                             setcookie('UserName',           $userName,          time() + 60*60*24*365*50, '/', $Cookie, false);
-                                            setcookie('Password',           $password,          time() + 60*60*24*365*50, '/', $Cookie, false);
-                                            setcookie('Firstname',          $firstName,         time() + 60*60*24*365*50, '/', $Cookie, false);
-                                            setcookie('lastNames',          $lastName,          time() + 60*60*24*365*50, '/', $Cookie, false);
+                                            setcookie('Password',           true,          time() + 60*60*24*365*50, '/', $Cookie, false);
+                                            setcookie('FirstName',          $firstName,         time() + 60*60*24*365*50, '/', $Cookie, false);
+                                            setcookie('LastName',          $lastName,          time() + 60*60*24*365*50, '/', $Cookie, false);
                                             setcookie('CanUpload',          $canUpload,         time() + 60*60*24*365*50, '/', $Cookie, false);
                                             setcookie('CanDownload',        $canDownload,       time() + 60*60*24*365*50, '/', $Cookie, false);
                                             setcookie('IsAdmin',            $isAdmin,           time() + 60*60*24*365*50, '/', $Cookie, false);
@@ -118,7 +103,7 @@
                                             $_SESSION['LoggedIn'] = true;
                                             $_SESSION['UserID'] = $userID;
                                             $_SESSION['UserName'] = $userName;
-                                            $_SESSION['Password'] = $password;
+                                            $_SESSION['Password'] = true;
                                             $_SESSION['FirstName'] = $firstName;
                                             $_SESSION['LastName'] = $lastName;
                                             $_SESSION['CanUpload'] = $canUpload;
@@ -133,21 +118,19 @@
                                             $_SESSION['PowerDeleteData'] = $powerDeleteData;
                                             $_SESSION['PowerEditData'] = $powerEditData;
                                                 header('location: ../HomePage/HomePage.php');
-                                            
                                         }
-                                        
                             }
                             else{
-                                $ERR = "Wrong username/password!";
+                                $ERR = "Wrong Username/Password!";
 
                                 setcookie('LoggedIn', false, time() + 60*60*24*365*50, '/', $Cookie, false);
+                                setcookie('Password', false,  time() + 60*60*24*365*50, '/', $Cookie, false);
                                 $_SESSION['LoggedIn'] = false;
+                                $_SESSION['Password'] = false;
                             }
-
                     }
             }
     }
-
 // -------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------
@@ -155,7 +138,4 @@
 // -------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------
-
-
-
 ?>

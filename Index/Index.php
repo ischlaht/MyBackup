@@ -1,21 +1,37 @@
 
-<!Doctype html>
-<html lang="en">
-
 <?php
-	require('../Index/LoginSystem.php');
-	require_once('../Components/Statik/Header/Header.php');
-
-		// reDir();//Found in login system
+    function reDirHomePage(){
+        
+        if(isset($_COOKIE['LoggedIn'])){
+			if($_COOKIE['LoggedIn'] == true){
+				header('location: ../HomePage/HomePage.php');
+			}
+        }
+        
+		elseif(isset($_SESSION['LoggedIn'])){
+			if($_SESSION['LoggedIn'] == true){
+				header('location: ../HomePage/HomePage.php');
+			}
+        }
+	}
+	reDirHomePage();//Found in login system
+			
+		require_once('../Index/LoginSystem.php');
+		require_once('../Components/Statik/Header/Header.php');
 ?>
 
 
+<!Doctype html>
+<html>
+
+<head>
+		<link rel="stylesheet" type="text/css" href="IndexStyle.css" />
+</head>
+
 	<body>
 		<script src="IndexController.js" type="text/javascript"></script>
-		<link rel="stylesheet" type="text/css" href="IndexStyle.css" />
 
-		
-			<!-- <link href="../Config.Files/Config.css/Global.Classes.css"> -->
+
 			<div id="indexPage">
 				<form id="loginSystem" ng-controller="LoginUser" method="POST" action="#">
 
