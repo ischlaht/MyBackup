@@ -1,13 +1,10 @@
 <?php
-    require_once("../Config.Files/Config.php/Main.Config.php");
+    require_once("../Config.Files/Config.php/Main.Config.php");//Server Config file
     
-    // ERR is displayed o login screen
-    $ERR = "";
-    $serverError = false;
+    // Error Handlers
+    $ERR = ""; // ERR is displayed to user on login screen
+    $serverError = false;//Used to stop from loging in if error occurs
 
-// -------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------
@@ -27,7 +24,6 @@
             }
 
             elseif($serverError == false){
-
                 $LoginQuery = "SELECT $DBTotalDataArray FROM useraccounts WHERE userName = ? && password = ?";
 
                     if($LoginCheckstmt = $DBConnection->prepare($LoginQuery)){
@@ -56,8 +52,7 @@
                                     $SchemePowerEditData
                                 );
 
-                                mysqli_stmt_fetch($LoginCheckstmt);//Has to come after above bind result ^^^
-                                    // $LoggedIn = 'true';
+                                mysqli_stmt_fetch($LoginCheckstmt);//Has to come after bind result above^^^
                                     $userID = $SchemeID;
                                     $userName = $SchemeUserName;
                                     $password = $SchemePassword;
@@ -77,7 +72,6 @@
 
 
                                         if(!empty($_POST['RememberMe'])){
-                                        
                                             setcookie('LoggedIn',           true,               time() + 60*60*24*365*50, '/', $Cookie, false);
                                             setcookie('UserID',             $userID,            time() + 60*60*24*365*50, '/', $Cookie, false);
                                             setcookie('UserName',           $userName,          time() + 60*60*24*365*50, '/', $Cookie, false);
@@ -129,6 +123,7 @@
                                 $_SESSION['Password'] = false;
                             }
                     }
+                    else{ echo "<script>alert('[Server Error->Prepared Statement {Code: LS30}] Contact King Systems Development for assistance!');</script>";}
             }
     }
 // -------------------------------------------------------------------------------------------------------------------------------
