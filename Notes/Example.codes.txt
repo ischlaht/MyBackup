@@ -2,6 +2,11 @@
 
 
 
+King permissions will include ---
+	*permission to ban admins
+	*permission to control admins permissions
+	*permission to ........
+
 
 
 

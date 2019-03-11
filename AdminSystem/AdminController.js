@@ -1,3 +1,5 @@
+// import { Component } from "react"
+
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
@@ -5,35 +7,82 @@
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
-// ------------------------z-----------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
 
-var AdminSystem = angular.module('AdminSystemOne', ['ngSanitize'])
-AdminSystem.controller('EditAdmins', ['$scope', '$http', function ($scope, $http) {
-  $scope.init = function () {
-    $http({
-      method: 'get',
-      url: './AdminController.php?VariableSetter=true'
-    })
-      .then(function (response, data) {
-        console.log('logged')
-        $scope.Records = response.data
-        console.log(response.data)
-      })
-  }
+var AdminSystem = angular.module("AdminSystemOne", ["ngSanitize"]);
+AdminSystem.controller("EditAccount", [
+  "$scope",
+  "$http",
+  function($scope, $http) {
+    //   -------------------------------------------------------
+    //   -------------------------------------------------------
+    //   -------------------------------------------------------
+    //   -------------------------------------------------------
 
-//   $scope.clicked = function () {
-//     alert('testig angular configgggggggggggggggggggggggggg12445')
-//   }
-}]); // End of Login System and Controller...
+    ($scope.init = function() {
+      $http({
+        method: "get",
+        url: "./AdminController.php?VariableSetter=true",
+      }).then(function(response, data) {
+        console.log("User Data Initialized");
+        $scope.Records = response.data;
 
-$('#AdminSystem').ready(function () {
-  angular.bootstrap($('#AdminSystem'), ['AdminSystemOne'])
-})
+        if (response.data.IsAdmin == "true") {
+          $scope.ShowAdminDetails = true;
+        } else {
+          $scope.ShowAdminDetails = false;
+        }
+      });
+    }),
+      //   -------------------------------------------------------
+      //   -------------------------------------------------------
+      //   -------------------------------------------------------
+      //   -------------------------------------------------------
+
+      ($scope.EditAccount = function(EditThis) {
+        var FD = new FormData();
+
+        var Edit = EditThis;
+        var newValue = $scope.EditAccountValue;
+
+        FD.append("Edit", Edit);
+        FD.append("newValue", newValue);
+
+        $http({
+          method: "POST",
+          url: "./AdminController.php?UpdateAccount=true",
+          // data: FD,
+          data: FD,
+          headers: {
+            "Content-Type": undefined,
+          },
+        }).then(function(response, data) {
+          // console.log("Profile Updated");
+          console.log(response.data)
+          $scope.UpdateAccountMessage = response.data   ;  
+          alert(response.data);
+        });
+      });
+
+    //   -------------------------------------------------------
+    //   -------------------------------------------------------
+    //   -------------------------------------------------------
+    //   -------------------------------------------------------
+
+    //   $scope.clicked = function () {
+    //     alert('testig angular configgggggggggggggggggggggggggg12445')
+    //   }
+  },
+]); // End of Login System and Controller...
+
+$("#AdminSystem").ready(function() {
+  angular.bootstrap($("#AdminSystem"), ["AdminSystemOne"]);
+});
 
 // -----------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------
@@ -45,13 +94,13 @@ $('#AdminSystem').ready(function () {
 // -----------------------------------------------------------------------------------------
 
 // Initializing Collapsables for materialize
-document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.collapsible')
-  var instances = M.Collapsible.init(elems)
-})
+document.addEventListener("DOMContentLoaded", function() {
+  var elems = document.querySelectorAll(".collapsible");
+  var instances = M.Collapsible.init(elems);
+});
 
 // Or with jQuery
 
-$(document).ready(function () {
-  $('.collapsible').collapsible()
-})
+$(document).ready(function() {
+  $(".collapsible").collapsible();
+});

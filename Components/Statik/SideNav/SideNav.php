@@ -1,3 +1,6 @@
+<!-- Code and programming created, developed, and all rights owned by Isaac Schlaht @ King Systems Development. -->
+
+
 
 <head>
 <link rel="stylesheet" type="text/css" href="../Components/Statik/SideNav/SideNav.css"/>
